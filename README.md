@@ -6,7 +6,8 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/eleurent/highway-env)](https://github.com/eleurent/highway-env/graphs/contributors)
 [![Environments](https://img.shields.io/github/search/eleurent/highway-env/import%20filename:*_env%20path:highway_env/envs?label=environments)](#the-environments)
 
-A collection of environments for *autonomous driving* and tactical decision-making tasks
+This repository is a branch of the original repo but expanded to tackle multi agent behaviors for Multi Agent lane changing scenarios for Highways. [Original](https://github.com/eleurent/highway-env) 
+
 
 <p align="center">
     <img src="../gh-media/docs/media/highway-env.gif?raw=true"><br/>
@@ -81,58 +82,6 @@ The agent's objective is to reach a high speed while avoiding collisions with ne
 <p align="center">
     <img src="../gh-media/docs/media/highway.gif?raw=true"><br/>
     <em>The highway-v0 environment.</em>
-</p>
-
-### Merge
-
-```python
-env = gym.make("merge-v0")
-```
-
-In this task, the ego-vehicle starts on a main highway but soon approaches a road junction with incoming vehicles on the access ramp. The agent's objective is now to maintain a high speed while making room for the vehicles so that they can safely merge in the traffic.
-
-<p align="center">
-    <img src="../gh-media/docs/media/merge-env.gif?raw=true"><br/>
-    <em>The merge-v0 environment.</em>
-</p>
-
-### Roundabout
-
-```python
-env = gym.make("roundabout-v0")
-```
-
-In this task, the ego-vehicle if approaching a roundabout with flowing traffic. It will follow its planned route automatically, but has to handle lane changes and longitudinal control to pass the roundabout as fast as possible while avoiding collisions.
-
-<p align="center">
-    <img src="../gh-media/docs/media/roundabout-env.gif?raw=true"><br/>
-    <em>The roundabout-v0 environment.</em>
-</p>
-
-### Parking
-
-```python
-env = gym.make("parking-v0")
-```
-
-A goal-conditioned continuous control task in which the ego-vehicle must park in a given space with the appropriate heading.
-
-<p align="center">
-    <img src="../gh-media/docs/media/parking-env.gif?raw=true"><br/>
-    <em>The parking-v0 environment.</em>
-</p>
-
-### Intersection
-
-```python
-env = gym.make("intersection-v0")
-```
-
-An intersection negotiation task with dense traffic.
-
-<p align="center">
-    <img src="../gh-media/docs/media/intersection-env.gif?raw=true"><br/>
-    <em>The intersection-v0 environment.</em>
 </p>
 
 ## The agents
