@@ -366,11 +366,20 @@ class MultiAgentObservation(ObservationType):
             obs_type.observer_vehicle = vehicle
             self.agents_observation_types.append(obs_type)
 
-    def space(self) -> spaces.Space:
-        return spaces.Tuple([obs_type.space() for obs_type in self.agents_observation_types])
+#     def space(self) -> spaces.Space:
+#         return spaces.Tuple([obs_type.space() for obs_type in self.agents_observation_types])
 
-    def observe(self) -> tuple:
-        return tuple(obs_type.observe() for obs_type in self.agents_observation_types)
+#     def observe(self) -> tuple:
+#         return tuple(obs_type.observe() for obs_type in self.agents_observation_types)
+    def space(self) -> spaces.Space:
+        return spaces.Box(shape=(10, 5), low=-1, high=1, dtype=np.float32)
+  
+    def observe(self) -> np.ndarray:
+        ob=self.agents_observation_types[0].observe()
+        for obs_type in self.agents_observation_types[1:]:
+            ob = np.vstack((ob,obs_type.observe()))
+
+        return ob
 
 
 def observation_factory(env: 'AbstractEnv', config: dict) -> ObservationType:
